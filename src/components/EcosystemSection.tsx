@@ -1,65 +1,76 @@
 import { motion } from "framer-motion";
 import Sparkles from "./Sparkles";
+import pippinLogo from "@/assets/pippin-logo.jpg";
 
 const projects = [
-  { name: "Pippin Animator", desc: "Generate custom Pippin characters and scenes with AI", emoji: "🎨", color: "primary" },
-  { name: "Pippin DAO", desc: "Community governance for the Pippin ecosystem", emoji: "🏛", color: "secondary" },
-  { name: "Pippin Stories", desc: "Interactive storybooks starring our round friend", emoji: "📖", color: "accent" },
-  { name: "Pippin Quest", desc: "A browser adventure across the multiverse", emoji: "⚔️", color: "primary" },
-  { name: "Pippin Beats", desc: "Music generator with Pippin-inspired sounds", emoji: "🎵", color: "secondary" },
-  { name: "Pippin Analytics", desc: "Dashboard tracking the growth of the universe", emoji: "📊", color: "accent" },
+  { name: "Pippin Animator", desc: "Generate custom Pippin characters and scenes with AI", emoji: "🎨" },
+  { name: "Pippin DAO", desc: "Community governance for the Pippin ecosystem", emoji: "🏛" },
+  { name: "Pippin Stories", desc: "Interactive storybooks starring our round friend", emoji: "📖" },
+  { name: "Pippin Quest", desc: "A browser adventure across the multiverse", emoji: "⚔️" },
+  { name: "Pippin Beats", desc: "Music generator with Pippin-inspired sounds", emoji: "🎵" },
+  { name: "Pippin Analytics", desc: "Dashboard tracking the growth of the universe", emoji: "📊" },
+];
+
+const orbitWorlds = [
+  { emoji: "🌍", label: "Dream Realm", size: 40 },
+  { emoji: "🌕", label: "Moon Base", size: 32 },
+  { emoji: "⭐", label: "Star Forge", size: 28 },
+  { emoji: "🪐", label: "Neon Ring", size: 36 },
+  { emoji: "☄️", label: "Comet Lab", size: 30 },
+  { emoji: "🌟", label: "Sparkle Hub", size: 26 },
+  { emoji: "💫", label: "Warp Gate", size: 28 },
+  { emoji: "🔮", label: "Oracle", size: 34 },
 ];
 
 const OrbitingWorlds = () => {
-  const orbitItems = ["🌍", "🌕", "⭐", "🪐", "☄️", "🌟", "💫", "🔮"];
   return (
-    <div className="relative w-64 h-64 mx-auto mb-16">
-      {/* Central Pippin */}
-      <motion.div
-        className="absolute inset-0 flex items-center justify-center"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-      >
-        <div className="absolute w-full h-full rounded-full border border-foreground/10" />
-      </motion.div>
+    <div className="relative w-[320px] h-[320px] md:w-[400px] md:h-[400px] mx-auto mb-16">
+      {/* Orbit rings */}
+      <div className="absolute inset-4 rounded-full border border-foreground/10" />
+      <div className="absolute inset-12 rounded-full border border-foreground/5" />
 
-      <div className="absolute inset-0 flex items-center justify-center text-5xl">
-        🐣
+      {/* Central Pippin logo */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <motion.div
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden glow-primary"
+        >
+          <img src={pippinLogo} alt="Pippin" className="w-full h-full object-cover" />
+        </motion.div>
       </div>
 
-      {/* Orbiting items */}
-      {orbitItems.map((item, i) => {
-        const angle = (i / orbitItems.length) * 360;
-        const radius = 110;
-        const duration = 20 + i * 3;
+      {/* Orbiting mini-worlds */}
+      {orbitWorlds.map((world, i) => {
+        const angle = (i / orbitWorlds.length) * 360;
+        const duration = 30 + i * 5;
+        const radius = 130;
+
         return (
           <motion.div
             key={i}
-            className="absolute left-1/2 top-1/2 text-2xl"
-            animate={{ rotate: 360 }}
+            className="absolute left-1/2 top-1/2"
+            style={{ width: 0, height: 0 }}
+            animate={{ rotate: [angle, angle + 360] }}
             transition={{ duration, repeat: Infinity, ease: "linear" }}
-            style={{
-              transformOrigin: "0 0",
-            }}
           >
-            <motion.span
-              className="absolute"
+            <motion.div
+              className="glass-card rounded-full flex items-center justify-center cursor-pointer"
               style={{
-                transform: `rotate(${angle}deg) translateX(${radius}px) rotate(-${angle}deg)`,
+                width: world.size,
+                height: world.size,
+                transform: `translateX(${radius}px) translateY(-${world.size / 2}px)`,
               }}
-              animate={{
-                rotate: [-angle, -angle - 360],
-              }}
+              whileHover={{ scale: 1.4 }}
+              animate={{ rotate: [-angle, -angle - 360] }}
               transition={{ duration, repeat: Infinity, ease: "linear" }}
+              title={world.label}
             >
-              {item}
-            </motion.span>
+              <span className="text-sm md:text-base">{world.emoji}</span>
+            </motion.div>
           </motion.div>
         );
       })}
-
-      {/* Inner orbit ring */}
-      <div className="absolute inset-8 rounded-full border border-foreground/5" />
     </div>
   );
 };

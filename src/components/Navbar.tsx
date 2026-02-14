@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import pippinLogo from "@/assets/pippin-logo.jpg";
 
 const navLinks = [
   { label: "Universe", href: "#about" },
@@ -29,8 +30,9 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
-        <a href="#" className="font-display text-xl font-bold text-gradient-primary">
-          🌌 Pippin Universe
+        <a href="#" className="flex items-center gap-2">
+          <img src={pippinLogo} alt="Pippin Universe" className="w-8 h-8 rounded-full object-cover" />
+          <span className="font-display text-lg font-bold text-gradient-primary">Pippin Universe</span>
         </a>
 
         {/* Desktop links */}
