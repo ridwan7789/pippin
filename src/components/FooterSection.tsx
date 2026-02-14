@@ -1,10 +1,12 @@
 import Sparkles from "./Sparkles";
+import { TelegramIcon, XIcon, GlobeIcon, GithubIcon } from "./icons/SocialIcons";
+import React from "react";
 
 const socials = [
-  { name: "Telegram", url: "https://t.me/Pippinuniverse" },
-  { name: "X", url: "https://x.com/pippinuniverse" },
-  { name: "Web", url: "https://pippinuniverse.fun" },
-  { name: "GitHub", url: "https://github.com/pippinlovesyou/pippin-universe" },
+  { name: "Telegram", icon: <TelegramIcon size={18} />, url: "https://t.me/Pippinuniverse" },
+  { name: "X", icon: <XIcon size={18} />, url: "https://x.com/pippinuniverse" },
+  { name: "Web", icon: <GlobeIcon size={18} />, url: "https://pippinuniverse.fun" },
+  { name: "GitHub", icon: <GithubIcon size={18} />, url: "https://github.com/pippinlovesyou/pippin-universe" },
 ];
 
 const FooterSection = () => {
@@ -28,8 +30,9 @@ const FooterSection = () => {
               href={s.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors font-body text-sm"
+              className="text-muted-foreground hover:text-primary transition-colors font-body text-sm flex items-center gap-1.5"
             >
+              {s.icon}
               {s.name}
             </a>
           ))}

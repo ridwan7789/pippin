@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
+import { TelegramIcon, XIcon, GlobeIcon, GithubIcon } from "./icons/SocialIcons";
+import React from "react";
 
 const socials = [
-  { name: "Telegram", emoji: "💬", url: "https://t.me/Pippinuniverse" },
-  { name: "X (Twitter)", emoji: "🐦", url: "https://x.com/pippinuniverse" },
-  { name: "Website", emoji: "🌐", url: "https://pippinuniverse.fun" },
-  { name: "GitHub", emoji: "🐙", url: "https://github.com/pippinlovesyou/pippin-universe" },
+  { name: "Telegram", icon: <TelegramIcon size={36} />, url: "https://t.me/Pippinuniverse" },
+  { name: "X (Twitter)", icon: <XIcon size={36} />, url: "https://x.com/pippinuniverse" },
+  { name: "Website", icon: <GlobeIcon size={36} />, url: "https://pippinuniverse.fun" },
+  { name: "GitHub", icon: <GithubIcon size={36} />, url: "https://github.com/pippinlovesyou/pippin-universe" },
 ];
 
 const CommunitySection = () => {
@@ -45,7 +47,7 @@ const CommunitySection = () => {
               whileHover={{ scale: 1.1, y: -4 }}
               className="glass-card rounded-2xl px-8 py-6 flex flex-col items-center gap-2 min-w-[140px]"
             >
-              <span className="text-4xl">{s.emoji}</span>
+              <span className="text-foreground">{s.icon}</span>
               <span className="text-foreground font-display font-bold">{s.name}</span>
             </motion.a>
           ))}
