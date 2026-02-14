@@ -28,7 +28,7 @@ const HeroSection = () => {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6 text-gradient-primary leading-tight">
-            🌌 Welcome to the Pippin Universe
+            Welcome to the Pippin Universe
           </h1>
         </motion.div>
 
