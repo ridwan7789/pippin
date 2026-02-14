@@ -48,10 +48,12 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a
-            href="#about"
+            href="https://github.com/pippinlovesyou/pippin-universe"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-gradient-primary px-8 py-4 rounded-full font-display text-lg font-bold animate-pulse-glow hover:scale-105 transition-transform inline-block"
           >
-            🚀 Explore the Universe
+            🚀 Build Your Universe
           </a>
           <a
             href="https://chatgpt.com/g/g-6733ad98c54c8190a5744c1b7a4d6752-pippin-animator"
