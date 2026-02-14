@@ -5,10 +5,14 @@ import EcosystemSection from "@/components/EcosystemSection";
 import GenerateSection from "@/components/GenerateSection";
 import CommunitySection from "@/components/CommunitySection";
 import FooterSection from "@/components/FooterSection";
+import Navbar from "@/components/Navbar";
+import PippinCharacter from "@/components/PippinCharacter";
 
 const Index = () => {
   return (
     <div className="bg-background text-foreground overflow-x-hidden">
+      <Navbar />
+      <PippinCharacter />
       <HeroSection />
       <AboutSection />
       <MultiverseSection />
